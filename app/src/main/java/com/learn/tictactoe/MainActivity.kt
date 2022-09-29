@@ -20,6 +20,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.learn.tictactoe.ui.theme.ForkActivity
@@ -61,14 +62,16 @@ class MainActivity : ComponentActivity() {
                         text = "Player One",
                         fontSize = 50.sp,
                         fontFamily = FontFamily.Monospace,
-                        modifier = Modifier.fillMaxWidth()
+                        modifier = Modifier.fillMaxWidth(),
+                        textAlign = TextAlign.Center
                     )
                 }else{
                     Text(
                         text = "Player Two",
                         fontSize = 50.sp,
                         fontFamily = FontFamily.Monospace,
-                        modifier = Modifier.fillMaxWidth()
+                        modifier = Modifier.fillMaxWidth(),
+                        textAlign = TextAlign.Center
                     )
                 }
 
@@ -92,7 +95,7 @@ class MainActivity : ComponentActivity() {
                     }
 
                     if( isGameFork() ){
-                        var intent : Intent = Intent(this@MainActivity, GameWon::class.java)
+                        var intent : Intent = Intent(this@MainActivity, ForkActivity::class.java)
                         startActivity (intent)
                     }
                 }
@@ -219,7 +222,6 @@ fun CreateGrid(
 
     Column(
         modifier = Modifier.fillMaxSize()
-            .background(Color.Blue)
             .padding(10.dp),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
